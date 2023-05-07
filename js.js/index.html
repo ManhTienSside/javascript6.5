@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <div class="card my-5 " style="width: 20rem;">
+          <div class="exe1">
+            <div class="card-header text-white bg-dark text-center">
+                quan li sinh vien
+            </div>
+            <div class="card-body">                
+                <form>
+                    <p>Nhap Diem Chuan:</p>
+                    <div class="form-group">                       
+                        <input type="text" class="form-control" id="inputTotal" placeholder="Diem Chuan">                  
+                     </div>
+                      <div class="form-group">
+                        <label for="">Chon khu vuc</label>
+                        <!-- dropdown / combobox -->
+                        <select class="form-control" id="selectArea">
+                          <option>--Chọn khu vực--</option>
+                          <option value="2">A - 2 Điểm </option>
+                          <option value="1">B - 1 Điểm</option>
+                          <option value="0.5">C - 0.5 Điểm</option>  
+                          <option value="0">khu vực không được ưu tiên</option> 
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="">Chon doi tuong</label>
+                        <!-- dropdown / combobox -->
+                        <select class="form-control" id="selectOject">
+                          <option>--Chọn đối tượng--</option>
+                          <option value="2.5">1 - 2.5 Điểm </option>
+                          <option value="1.5">2 - 1.5 Điểm</option>
+                          <option value="1">3 - 1 Điểm</option>  
+                          <option value="0">đối tượng không được ưu tiên</option>  
+                        </select>
+                      </div>
+                      <div class="form-group">
+                        <p>số điểm các môn</p>                       
+                        <input type="number" class="form-control" id="inputMa" placeholder="Nhập số điểm toán">  
+                        <input type="number" class="form-control" id="inputPhy" placeholder="Nhập số điểm lý">
+                        <input type="number" class="form-control" id="inputHoa" placeholder="Nhập số điểm hóa">                
+                     </div>
+                    <button type="button" class="btn btn-danger" id="btnCalc">kết quả</button>
+                    <p id="txtResult">Ket qua</p>
+                </form>
+            </div>
+          </div>
+          <div class="exe2">
+            <div class="card-header text-white bg-dark text-center">
+              tính tiền điện
+            </div>
+            <div class="card-body">                
+              <form>
+                  <div class="form-group">                       
+                      <input type="text" class="form-control" id="useName" placeholder="tên người dùng">  
+                  </div>
+                  <div class="form-group">                   
+                      <input type="number" class="form-control" id="count" placeholder="Nhập số kg điện đã sử dụng">               
+                  </div>
+                  <button type="button" onclick="ele()" class="btn btn-danger" id="btnCalcEle">kết quả</button>
+                  <p id="txtResultEle">Thanh Toan:</p>
+              </form>
+            </div>
+          </div>
+          <div class="exe3">
+            <div class="card-header text-white bg-dark text-center">
+              thu nhap ca nhan
+            </div>
+            <div class="card-body">                
+              <form>
+                  <div class="form-group">                       
+                      <input type="text" class="form-control" id="useNameTax" placeholder="nhap ho ten">  
+                  </div>
+                  <div class="form-group">                   
+                      <input type="number" class="form-control" id="totalYear" placeholder="tong thu nhap nam">                                
+                  </div>
+                  <div class="form-group">                   
+                    <input type="number" class="form-control" id="countPeo" placeholder="so nguoi phu thuoc">                                
+                </div>
+                  <button type="button" onclick="tax()" class="btn btn-danger" id="btnCalcTax">kết quả</button>
+                  <p id="txtResultTax"></p>
+              </form>
+            </div>
+          </div>
+          <div class="exe4">
+            <div class="exe3">
+              <div class="card-header text-white bg-dark text-center">
+                tinh tien cap
+              </div>
+              <div class="card-body">                
+                <form>
+                    <select class="form-control" id="selectCustomer" onchange="hiden()">
+                      <option>--Chọn loai khac hang--</option>
+                      <option value="ND">nha dan </option>
+                      <option value="DN">Doanh nghiep</option>
+                    </select>
+                    <div class="form-group">                       
+                      <input type="text" class="form-control" id="inputMs" placeholder="nhap ma khac hang">                  
+                    </div>
+                    <div class="form-group">                       
+                    <input type="number" class="form-control" id="inputItem" placeholder="so kenh cao cap">                  
+                    </div>
+                    <div class="form-group ">                       
+                      <input type="number" class="form-control" id="inputInter" placeholder="so ket noi">                  
+                    </div>
+                    <button type="button" onclick="sumCap()" class="btn btn-danger" id="btnCalcCap">tinh tien cap</button>
+                    <p id="txtResultCap"></p>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+</body>
+</html>
